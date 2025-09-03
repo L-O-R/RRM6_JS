@@ -272,3 +272,4 @@ console.log(addition);
 
 //  life span
 // global scope || functional scope || block scope
+//new line added

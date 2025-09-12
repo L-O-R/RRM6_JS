@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="todo-app">
+        <header class="todo-app__header">
+            <h1 class="todo-app__title">Things to do</h1>
+        </header>
+
+
+        <section>
+            <form action="">
+                <label for="title">Task</label>
+                <input type="text" id="title" placeholder="type task to do...">
+                <button type="submit" id="add_task_btn">Add Task</button>
+            </form>
+        </section>
+        <!-- <div class="todo-item">
+            <input type="checkbox" id="todo-1" class="todo-item__checkbox" aria-describedby="todo-1-label">
+            <label for="todo-1" id="todo-1-label" class="todo-item__label">
+                to-do item
+            </label>
+        </div> -->
+
+        <section id="task_view"></section>
+    </main>
+
+    <script src="./scripts/app.js"></script>
+</body>
+
+</html>

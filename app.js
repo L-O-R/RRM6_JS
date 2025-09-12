@@ -273,3 +273,90 @@ console.log(addition);
 //  life span
 // global scope || functional scope || block scope
 //new line added
+
+// function => set of block of code / instruction wating to be excuted
+
+// name function // unamed function
+
+// function funcName (){
+// instruction, block of code
+// return none or something
+// }
+
+// const unamedFunction = function(){
+// instruction ya block of code
+// }
+
+// un-named
+
+const greet = function () {
+  console.log("hello");
+};
+
+greet();
+
+// named
+function greet2() {
+  console.log("Hello from greet 2 function");
+}
+
+greet2();
+
+//  a,b => params
+function addtion(a, b) {
+  // console.log(a + b);
+  return a + b;
+}
+
+// / if no return statment avaiblbe return undefined
+///                arguments
+const sum = addtion(10, 20);
+
+console.log(sum);
+
+// what is lexcial scope?
+
+// variable life span
+
+// global || local/ functional || block scope
+
+let globalVariable = 20;
+
+function abc() {
+  console.log("from function scope");
+  console.log(globalVariable);
+
+  let localVar = "this is local var";
+  console.log(localVar);
+
+  console.log("------------------------------");
+}
+
+abc();
+
+if (true) {
+  console.log("from block scope(if)");
+  console.log(globalVariable);
+  let blockscope = "var varibale decraled in if statment";
+  // console.log(localVar); // will get an error of not defined
+  console.log("------------------------------");
+}
+
+console.log("global variable => ", globalVariable);
+// console.log(blockscope);
+
+let m = 10;
+
+console.log("m", m);
+
+// arrow function
+// => this keyword
+
+// const arrowFunc = () => {
+// arrow function
+// }
+
+//  one line function no need for curly brackedt or return statement
+const product = () => 8 * 5;
+
+console.log(product());

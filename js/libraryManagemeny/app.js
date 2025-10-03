@@ -37,3 +37,5 @@ function onSubmit(event) {
 }
 
 myLib.showBookList();
+
+// export default myLib.showBookList;

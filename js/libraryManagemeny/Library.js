@@ -13,6 +13,17 @@ export class Library {
   addBook(book) {
     // []// {}
 
+    let bks = this.bookList.filter(
+      (b) => b.isbn === book.isbn
+    );
+    console.log(bks);
+
+    if (bks.length > 0) {
+      bks[0].quantity += book.quantity;
+      return alert(
+        "book already , SO quantity of that was increased"
+      );
+    }
     this.bookList.push(book);
 
     localStorage.setItem(

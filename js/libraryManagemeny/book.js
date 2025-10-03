@@ -16,3 +16,7 @@ export class Book {
     this.borrowedCopies = 0;
   }
 }
+
+// let book1 = new Book("jas", "asd", "asda", 89809, 890, 88);
+
+// console.log(book1);

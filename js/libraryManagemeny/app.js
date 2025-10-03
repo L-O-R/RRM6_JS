@@ -11,6 +11,9 @@ const addBook__form = document.getElementById(
 addBook__form.addEventListener("submit", onSubmit);
 const myLib = new Library("My Library", "Night City");
 
+myLib.bookList =
+  JSON.parse(localStorage.getItem("bookList")) || [];
+
 // on sumit function
 
 function onSubmit(event) {
@@ -31,6 +34,6 @@ function onSubmit(event) {
     bookQuantity
   );
   myLib.addBook(newBook);
-  myLib.showBookList();
-  console.log(myLib);
 }
+
+myLib.showBookList();

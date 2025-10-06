@@ -2,14 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>Library – Book List</title>
+    <link rel="stylesheet" href="bookList.css" />
 </head>
 
 <body>
-
-    <div id="root"></div>
+    <main class="wrapper">
+        <input type="search" name="" id="search">
+        <h1 class="page-title">Book List</h1>
+        <section id="root" class="card-grid"></section>
+        <p id="empty-note" class="empty-note hidden">
+            No books have been added yet.
+        </p>
+    </main>
 
     <script>
         const bookList = JSON.parse(localStorage.getItem("bookList")) || [];
@@ -25,8 +31,16 @@
                     )
                     div.classList = "book_card";
                     div.innerHTML = `
-                        <h2> ${book.title} </h2>
-                        <h3> ${book.author} </h3>
+                        <img src='./BOOK.jpg' alt="book"/>
+                        <h2 class="book-title">${book.title}</h2>
+                        <p class="book-meta">
+                            <span>${book.author}</span>
+                            <span>${book.genre}</span>
+                            <span>${book.publish_year}</span>
+                        </p>
+                        <p class="quantity">
+                            ISBN: ${book.isbn}<br/>Copies: ${book.quantity}
+                        </p>
                     `
 
                     container.appendChild(div)
@@ -37,6 +51,25 @@
         }
 
         RenderBooks()
+        let newBookList = bookList.filter((book) => {
+            return book.title.toLowerCase().includes('a'.toLowerCase())
+        })
+        console.log(newBookList)
+
+
+
+
+        console.log(bookList[0].title.includes("a"))
+
+
+        const search = document.getElementById('search')
+
+        //search.addEventListener('change', (e) => console.log(e.target.value))
+        search.addEventListener('change', (e) => {
+            let newBook =
+                bookList.filter((book) => book.title.toLowerCase().includes(e.target.value.toLowerCase()))
+            console.log(newBook)
+        })
     </script>
 </body>
 

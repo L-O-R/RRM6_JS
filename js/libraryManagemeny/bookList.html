@@ -10,7 +10,34 @@
 <body>
 
     <div id="root"></div>
-    <script type="module" src="./bookList.js"></script>
+
+    <script>
+        const bookList = JSON.parse(localStorage.getItem("bookList")) || [];
+
+        const container = document.getElementById('root')
+        const RenderBooks = () => {
+            container.innerHTML = "";
+            if (bookList.length > 0) {
+                console.log("data found")
+                bookList.forEach((book) => {
+                    const div = document.createElement(
+                        "div"
+                    )
+                    div.classList = "book_card";
+                    div.innerHTML = `
+                        <h2> ${book.title} </h2>
+                        <h3> ${book.author} </h3>
+                    `
+
+                    container.appendChild(div)
+                })
+            } else {
+                container.innerText = " No books added yet"
+            }
+        }
+
+        RenderBooks()
+    </script>
 </body>
 
 </html>

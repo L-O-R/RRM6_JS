@@ -31,20 +31,20 @@ export class Library {
       JSON.stringify(this.bookList)
     );
 
-    this.showBookList();
+    // this.showBookList();
   }
 
-  showBookList() {
-    container.innerHTML = "";
-    this.bookList.forEach((book) => {
-      let div = document.createElement("div");
-      div.classList = "book__card";
-      let h2 = document.createElement("h2");
-      h2.innerText = book.title;
-      div.appendChild(h2);
-      container.appendChild(div);
-    });
-  }
+  // showBookList() {
+  //   container.innerHTML = "";
+  //   this.bookList.forEach((book) => {
+  //     let div = document.createElement("div");
+  //     div.classList = "book__card";
+  //     let h2 = document.createElement("h2");
+  //     h2.innerText = book.title;
+  //     div.appendChild(h2);
+  //     container.appendChild(div);
+  //   });
+  // }
 }
 
 // const Library1 = new Library(

@@ -1,48 +1,45 @@
 import { Book } from "./book.js";
 import { Library } from "./Library.js";
 
-// Targeted elements
-// 1> form
-
-const addBook__form = document.getElementById(
+// Form setup
+const addBookForm = document.getElementById(
   "add_book--form"
 );
+addBookForm.addEventListener("submit", onSubmit);
 
-addBook__form.addEventListener("submit", onSubmit);
 const myLib = new Library("My Library", "Night City");
-
 myLib.bookList =
   JSON.parse(localStorage.getItem("bookList")) || [];
 
-// on sumit function
-
+// Submit handler
 function onSubmit(event) {
   event.preventDefault();
-  let bookTitle = event.target[0].value;
-  let bookAuthor = event.target[1].value;
-  let bookGenre = event.target[2].value;
-  let bookIsbn = event.target[3].value;
-  let bookPublicationYear = event.target[4].value;
-  let bookQuantity = event.target[5].value;
+
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const genre = document.getElementById("genre").value;
+  const isbn = document.getElementById("isbn").value;
+  const publishYear = parseInt(
+    document.getElementById("publish_year").value
+  );
+  const quantity = parseInt(
+    document.getElementById("quantity").value
+  );
 
   const newBook = new Book(
-    bookTitle,
-    bookAuthor,
-    bookGenre,
-    bookIsbn,
-    bookPublicationYear,
-    bookQuantity
+    title,
+    author,
+    genre,
+    isbn,
+    publishYear,
+    quantity
   );
   myLib.addBook(newBook);
 
-  event.target[0].value = "";
-  event.target[1].value = "";
-  event.target[2].value = "genre";
-  event.target[3].value = "";
-  event.target[4].value = "";
-  event.target[5].value = "";
+  // Reset form
+  addBookForm.reset();
+
+  alert(
+    "Book added successfully! Check the book list page."
+  );
 }
-
-// myLib.showBookList();
-
-// export default myLib.showBookList;
